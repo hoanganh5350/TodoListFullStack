@@ -14,9 +14,7 @@ export default function Dashboard() {
           priority
         />
         <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
+          <li>Trang này là trang chủ của Hoàng Anh</li>
           <li>Save and see your changes instantly.</li>
         </ol>
 
