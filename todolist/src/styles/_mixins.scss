@@ -1,4 +1,5 @@
- // Mixins
+@import "./variables";
+// Mixins
 @mixin AnimationLink($color, $colorActive) {
   cursor: pointer;
   font-weight: 500;
@@ -113,4 +114,23 @@ $mobile_m: "only screen and (max-width: 321px)";
 @mixin row() {
   display: flex;
   flex-direction: row;
+}
+
+@mixin bg-gradient() {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, $BackGroundLogin),
+    color-stop(43%, $white)
+  );
+}
+
+@mixin background($imgpath, $size, $position: 0 0, $repeat: no-repeat) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+    size: $size;
+  }
 }

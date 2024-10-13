@@ -1,0 +1,70 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.containerHeader {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerForm {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 16px 0;
+}
+
+.sub {
+  font-size: 13px;
+  color: $gray-700;
+}
+
+.inputLogin {
+  width: 350px;
+}
+
+.buttonLogin {
+  width: 350px;
+  height: 35px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.iconEye {
+  cursor: pointer;
+}
+
+.forgetPassword {
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: end;
+  color: $gray-800;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.switchRegister {
+  display: flex;
+  font-size: 14px;
+}
+
+.textRegister {
+  color: $D30;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    color: $cyan;
+  }
+}
