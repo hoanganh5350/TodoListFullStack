@@ -10,7 +10,6 @@ const Login = () => {
       <div className={styles.containerLogin}>
         <HeaderLogin mode={MODE_LOGIN.EMAIL} />
         <FormLogin
-          mode={MODE_LOGIN.EMAIL}
           onSubmit={() => {}}
           switchRegister={() => {}}
           onForgetPassword={() => {}}

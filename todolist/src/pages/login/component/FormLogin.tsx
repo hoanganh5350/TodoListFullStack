@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import styles from "./Styles.module.scss";
 import {
   UserOutlined,
@@ -6,8 +6,7 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import { Input, Button } from "antd";
-import { MODE_LOGIN } from "../interface";
+import { Input, Button, InputRef } from "antd";
 
 export enum NAME_FORM {
   EMAIL = "email",
@@ -22,20 +21,19 @@ type ValueForm = {
 };
 
 type FormLoginProps = {
-  mode: MODE_LOGIN;
   onSubmit: (value: ValueForm) => void;
   switchRegister: VoidFunction;
   onForgetPassword: VoidFunction;
 };
 
 const FormLogin: FC<FormLoginProps> = ({
-  mode,
   onSubmit,
   switchRegister,
   onForgetPassword,
 }) => {
   const [seePassword, setSeePassword] = useState<boolean>(false);
   const [valueForm, setValueForm] = useState<ValueForm>({});
+  const refInputPassword = useRef<InputRef>(null);
 
   const onChange = (e: any) => {
     setValueForm({ ...valueForm, [e.target.name]: e.target.value });
@@ -55,6 +53,7 @@ const FormLogin: FC<FormLoginProps> = ({
 
       <Input
         name={NAME_FORM.PASSWORD}
+        ref={refInputPassword}
         className={styles.inputLogin}
         size="large"
         placeholder="Mật khẩu"
@@ -62,7 +61,19 @@ const FormLogin: FC<FormLoginProps> = ({
         suffix={
           <div
             className={styles.iconEye}
-            onClick={() => setSeePassword(!seePassword)}
+            onClick={() => {
+              setSeePassword(!seePassword);
+              setTimeout(() => {
+                const passwordLength = valueForm[NAME_FORM.PASSWORD]
+                  ? valueForm[NAME_FORM.PASSWORD]?.length
+                  : 0;
+                if (!refInputPassword.current) return;
+                refInputPassword.current.setSelectionRange(
+                  passwordLength,
+                  passwordLength
+                );
+              }, 10);
+            }}
           >
             {seePassword ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
@@ -75,8 +86,6 @@ const FormLogin: FC<FormLoginProps> = ({
       </div>
       <Button
         className={styles.buttonLogin}
-        color="default"
-        variant="solid"
         onClick={() => onSubmit(valueForm)}
       >
         Đăng nhập ngay
