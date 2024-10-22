@@ -1,14 +1,17 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, Fragment, useRef, useState } from "react";
 import styles from "./Styles.module.scss";
 import {
   UserOutlined,
   LockOutlined,
   EyeInvisibleOutlined,
   EyeOutlined,
+  AuditOutlined,
+  ContactsOutlined,
+  PhoneOutlined,
 } from "@ant-design/icons";
 import { Input, Button, InputRef } from "antd";
 import { HeaderLogin } from "./HeaderLogin";
-import { MODE_LOGIN } from "../interface";
+import { MODE_LOGIN, TYPE_INPUT } from "../interface";
 import { useFormik } from "formik";
 
 export enum NAME_FORM_REGISTER {
@@ -54,50 +57,98 @@ const FormRegister: FC<FormRegisterProps> = ({ onSubmitForm, switchLogin }) => {
     setFieldValue(nameField, e.target.value);
   };
 
+  const arrFormRegister = [
+    {
+      name: NAME_FORM_REGISTER.FULL_NAME,
+      typeInput: TYPE_INPUT.TEXT,
+      placeholder: "Nhập họ tên đầy đủ",
+      prefix: <AuditOutlined />,
+    },
+    {
+      name: NAME_FORM_REGISTER.USER_NAME,
+      typeInput: TYPE_INPUT.TEXT,
+      placeholder: "Tên người dùng",
+      prefix: <AuditOutlined />,
+    },
+    {
+      name: NAME_FORM_REGISTER.ADDRESS,
+      typeInput: TYPE_INPUT.TEXT,
+      placeholder: "Địa chỉ",
+      prefix: <ContactsOutlined />,
+    },
+    {
+      name: NAME_FORM_REGISTER.EMAIL,
+      typeInput: TYPE_INPUT.TEXT,
+      placeholder: "Email",
+      prefix: <UserOutlined />,
+    },
+    {
+      name: NAME_FORM_REGISTER.PHONE,
+      typeInput: TYPE_INPUT.TEXT,
+      placeholder: "Số điện thoại",
+      prefix: <PhoneOutlined />,
+    },
+    {
+      name: NAME_FORM_REGISTER.PASSWORD,
+      typeInput: TYPE_INPUT.PASSWORD,
+      placeholder: "Mật khẩu",
+      prefix: <LockOutlined />,
+    },
+  ];
+
   //MAIN RENDER
   return (
     <>
-      <HeaderLogin mode={MODE_LOGIN.EMAIL} />
+      <HeaderLogin mode={MODE_LOGIN.REGISTER} />
       <div className={styles.containerForm}>
-        <Input
-          name={NAME_FORM_REGISTER.EMAIL}
-          className={styles.inputLogin}
-          size="large"
-          placeholder="Email"
-          prefix={<UserOutlined />}
-          onChange={(e) => onChange(NAME_FORM_REGISTER.EMAIL, e)}
-        />
+        {arrFormRegister.map((item, idx: number) => (
+          <Fragment key={idx}>
+            {item.typeInput === TYPE_INPUT.PASSWORD ? (
+              <Input
+                name={item.name}
+                ref={refInputPassword}
+                className={styles.inputLogin}
+                size="large"
+                placeholder={item.placeholder}
+                prefix={item.prefix}
+                suffix={
+                  <div
+                    className={styles.iconEye}
+                    onClick={() => {
+                      setSeePassword(!seePassword);
+                      setTimeout(() => {
+                        const passwordLength = values[
+                          NAME_FORM_REGISTER.PASSWORD
+                        ]
+                          ? values[NAME_FORM_REGISTER.PASSWORD]?.length
+                          : 0;
+                        if (!refInputPassword.current) return;
+                        refInputPassword.current.setSelectionRange(
+                          passwordLength,
+                          passwordLength
+                        );
+                      }, 10);
+                    }}
+                  >
+                    {seePassword ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+                  </div>
+                }
+                type={seePassword ? "text" : "password"}
+                onChange={(e) => onChange(item.name, e)}
+              />
+            ) : (
+              <Input
+                name={item.name}
+                className={styles.inputLogin}
+                size="large"
+                placeholder={item.placeholder}
+                prefix={item.prefix}
+                onChange={(e) => onChange(item.name, e)}
+              />
+            )}
+          </Fragment>
+        ))}
 
-        <Input
-          name={NAME_FORM_REGISTER.PASSWORD}
-          ref={refInputPassword}
-          className={styles.inputLogin}
-          size="large"
-          placeholder="Mật khẩu"
-          prefix={<LockOutlined />}
-          suffix={
-            <div
-              className={styles.iconEye}
-              onClick={() => {
-                setSeePassword(!seePassword);
-                setTimeout(() => {
-                  const passwordLength = values[NAME_FORM_REGISTER.PASSWORD]
-                    ? values[NAME_FORM_REGISTER.PASSWORD]?.length
-                    : 0;
-                  if (!refInputPassword.current) return;
-                  refInputPassword.current.setSelectionRange(
-                    passwordLength,
-                    passwordLength
-                  );
-                }, 10);
-              }}
-            >
-              {seePassword ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-            </div>
-          }
-          type={seePassword ? "text" : "password"}
-          onChange={(e) => onChange(NAME_FORM_REGISTER.PASSWORD, e)}
-        />
         <Button className={styles.buttonLogin}>Đăng ký ngay</Button>
         <div className={styles.switchRegister}>
           <p>Bạn đã có tài khoản?</p>&nbsp;

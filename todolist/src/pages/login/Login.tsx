@@ -1,7 +1,7 @@
 import React, { Key, useEffect, useState } from "react";
 import styles from "./Login.module.scss";
-import { FormLogin, HeaderLogin } from "./component";
-import { MODE_LOGIN, SCREEN_LOGIN } from "./interface";
+import { FormLogin } from "./component";
+import { SCREEN_LOGIN } from "./interface";
 import { FormRegister } from "./component/FormRegister";
 
 const Login = () => {
@@ -31,7 +31,13 @@ const Login = () => {
   };
   //MAIN RENDER
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        screenLogin === SCREEN_LOGIN.LOGIN
+          ? styles.backgroundLogin
+          : styles.backgroundRegister
+      }`}
+    >
       <div className={styles.containerLogin}>{renderScreenLogin()}</div>
     </div>
   );

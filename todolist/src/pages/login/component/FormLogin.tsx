@@ -44,7 +44,7 @@ const FormLogin: FC<FormLoginProps> = ({
   //MAIN RENDER
   return (
     <>
-      <HeaderLogin mode={MODE_LOGIN.EMAIL} />
+      <HeaderLogin mode={MODE_LOGIN.LOGIN} />
       <div className={styles.containerForm}>
         <Input
           name={NAME_FORM.EMAIL}
