@@ -24,7 +24,7 @@
 
 .backgroundLogin {
   height: 100vh;
-  @include background("/BackgroundLogin.jpg", 100vw 100vh);
+  @include background("/BackgroundLogin.jpg", 100vw 100%);
 }
 
 .backgroundRegister {

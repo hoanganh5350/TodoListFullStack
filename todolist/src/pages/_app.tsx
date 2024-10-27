@@ -1,6 +1,17 @@
+import Layout from "@/components";
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const router = useRouter();
+  const pathNoLayout = ["login"];
+  const pathFrist = router.pathname.split("/")[1] ?? "";
+  return pathNoLayout.includes(pathFrist) ? (
+    <Component {...pageProps} />
+  ) : (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
