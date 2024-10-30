@@ -3,6 +3,7 @@ import styles from "./Login.module.scss";
 import { FormLogin } from "./component";
 import { SCREEN_LOGIN } from "./interface";
 import { FormRegister } from "./component/FormRegister";
+import NoSRR from "@/components/NoSRR";
 
 const Login = () => {
   const [screenLogin, setScreenLogin] = useState<SCREEN_LOGIN>(
@@ -38,7 +39,9 @@ const Login = () => {
           : styles.backgroundRegister
       }`}
     >
-      <div className={styles.containerLogin}>{renderScreenLogin()}</div>
+      <NoSRR>
+        <div className={styles.containerLogin}>{renderScreenLogin()}</div>
+      </NoSRR>
     </div>
   );
 };

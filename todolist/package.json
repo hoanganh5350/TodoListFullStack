@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.1",
+    "@blocknote/core": "^0.18.0",
+    "@blocknote/mantine": "^0.18.0",
+    "@blocknote/react": "^0.18.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
