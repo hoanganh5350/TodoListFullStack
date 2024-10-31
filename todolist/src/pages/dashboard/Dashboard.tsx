@@ -1,9 +1,10 @@
 import React, { Key, useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
-import { ItemTask } from "@/components";
+import { CheckBoxGroup, Dropdown, ItemTask } from "@/components";
 import { Button, Input, Select, Space } from "antd";
 import { useRouter } from "next/router";
 import NoSRR from "@/components/NoSRR";
+import { Filter } from "react-bootstrap-icons";
 
 const { Search } = Input;
 
@@ -30,6 +31,25 @@ const Dashboard = () => {
             size="large"
             placeholder="input search text"
             allowClear
+          />
+          <Dropdown
+            classNameChildren={styles.dropFilterChildren}
+            title={
+              <div className={`${styles.filter}`}>
+                <Filter size={30} />
+              </div>
+            }
+            children={
+              <CheckBoxGroup
+                options={[
+                  { label: "New", value: "New" },
+                  { label: "Note", value: "Note" },
+                  { label: "Create by me", value: "Create by me" },
+                ]}
+              />
+            }
+            mode={"bubble"}
+            bubblePosition={"end"}
           />
         </div>
         <div className={`${styles.containerListTask}`}>

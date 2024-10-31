@@ -26,7 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
       {/* Logo */}
       <div
-        className={`col-9 row align-center justify-center ${styles.rowLogo}`}
+        className={`col-10 row align-center justify-center ${styles.rowLogo}`}
       >
         <div className={`col-4 align-center justify-center ${styles.outLogo}`}>
           <img className={styles.logo} src={"/LogoTodo.png"} />
@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
       {/* Utils User */}
       <div
-        className={`col-2 row align-center justify-end ${styles.rowUtilsUser}`}
+        className={`col-1 row align-center justify-end ${styles.rowUtilsUser}`}
       >
         <div className={`align-center justify-end ${styles.utilsUser}`}>
           <Dropdown

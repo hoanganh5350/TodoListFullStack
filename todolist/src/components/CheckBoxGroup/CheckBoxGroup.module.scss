@@ -1,0 +1,49 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.containerCheckBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
+.divider {
+  margin: 12px 0;
+}
+
+.containerCheckBoxList {
+  display: flex;
+}
+
+.checkListCol {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkListRow {
+  gap: 8px;
+}
+
+.labelList {
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  &:hover {
+    background-color: rgb(206, 206, 206);
+  }
+  &:active {
+    background-color: rgb(180, 180, 180);
+  }
+}
+
+.labelListRow {
+  max-width: 200px;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.labelListCol {
+  width: 100%;
+  white-space: nowrap;
+}

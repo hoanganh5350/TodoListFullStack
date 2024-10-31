@@ -1,6 +1,6 @@
 import React, { Key, useEffect, useState } from "react";
 import styles from "./Task.module.scss";
-import { ItemTask, NoteBox } from "@/components";
+import { CheckBoxGroup, Dropdown, ItemTask, NoteBox } from "@/components";
 import { Button, FloatButton, Input, Select, Space } from "antd";
 import { Filter, People, PlusLg, PlusSquare } from "react-bootstrap-icons";
 import { IUserDetails } from "@/components/NoteBox/NoteBox";
@@ -112,9 +112,25 @@ const Task = () => {
         <div className={`${styles.titleTask}`}>
           Task 1 (Nhiệm vụ chi tiết) - ID:2342
         </div>
-        <div className={`${styles.filter}`}>
-          <Filter size={25} />
-        </div>
+        <Dropdown
+          classNameChildren={styles.dropFilterChildren}
+          title={
+            <div className={`${styles.filter}`}>
+              <Filter size={25} />
+            </div>
+          }
+          children={
+            <CheckBoxGroup
+              options={[
+                { label: "New", value: "New" },
+                { label: "Note", value: "Note" },
+                { label: "Create by me", value: "Create by me" },
+              ]}
+            />
+          }
+          mode={"bubble"}
+          bubblePosition={"end"}
+        />
       </div>
       <div className={`${styles.containerList}`}>
         {listSubTask.map((item, key: Key) => (
