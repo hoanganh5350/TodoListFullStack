@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 20px 0px;
+  gap: 20px;
+}
+
+.headerNewTask {
+  width: 100%;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.formNewTask {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: "max-content";
+  background-color: $white;
+  box-shadow: 0px 0px 5px $D30;
+  border-radius: 8px;
+  padding: 16px;
+  gap: 20px;
+}
+
+.formValue {
+}
+
+.rowButton {
+  width: 100%;
+  gap: 10px;
+}
+
+.buttonCreate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 150px;
+  height: 35px;
+  font-size: 14px;
+  background-color: $black;
+  color: $white !important;
+}
+
+.buttonCancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 150px;
+  height: 35px;
+  font-size: 14px;
+  background-color: $ColorCancel;
+  color: $white !important;
+  &:hover {
+    background-color: $red;
+  }
+  &:active {
+    background-color: $ColorCancelActive;
+  }
+}
