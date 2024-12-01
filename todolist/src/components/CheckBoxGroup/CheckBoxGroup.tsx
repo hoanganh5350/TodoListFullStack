@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import style from "./CheckBoxGroup.module.scss";
-import { Checkbox, Divider } from "antd";
-import type { CheckboxProps } from "antd";
+import { Checkbox, Divider } from "antd/lib";
+import type { CheckboxProps } from "antd/lib";
 
 type ItemCheck = {
   label: string;

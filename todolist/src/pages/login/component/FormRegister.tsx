@@ -1,18 +1,10 @@
 import React, { FC, Fragment, useRef, useState } from "react";
 import styles from "./Styles.module.scss";
-import {
-  UserOutlined,
-  LockOutlined,
-  EyeInvisibleOutlined,
-  EyeOutlined,
-  AuditOutlined,
-  ContactsOutlined,
-  PhoneOutlined,
-} from "@ant-design/icons";
-import { Input, Button, InputRef } from "antd";
+import { Input, Button, InputRef } from "antd/lib";
 import { HeaderLogin } from "./HeaderLogin";
 import { MODE_LOGIN, TYPE_INPUT } from "../interface";
 import { useFormik } from "formik";
+import { BookmarkStar, Eye, EyeSlash, FileText, Lock, Person, Telephone } from "react-bootstrap-icons";
 
 export enum NAME_FORM_REGISTER {
   FULL_NAME = "fullName",
@@ -62,37 +54,37 @@ const FormRegister: FC<FormRegisterProps> = ({ onSubmitForm, switchLogin }) => {
       name: NAME_FORM_REGISTER.FULL_NAME,
       typeInput: TYPE_INPUT.TEXT,
       placeholder: "Nhập họ tên đầy đủ",
-      prefix: <AuditOutlined />,
+      prefix: <FileText />,
     },
     {
       name: NAME_FORM_REGISTER.USER_NAME,
       typeInput: TYPE_INPUT.TEXT,
       placeholder: "Tên người dùng",
-      prefix: <AuditOutlined />,
+      prefix: <FileText />,
     },
     {
       name: NAME_FORM_REGISTER.ADDRESS,
       typeInput: TYPE_INPUT.TEXT,
       placeholder: "Địa chỉ",
-      prefix: <ContactsOutlined />,
+      prefix: <BookmarkStar />,
     },
     {
       name: NAME_FORM_REGISTER.EMAIL,
       typeInput: TYPE_INPUT.TEXT,
       placeholder: "Email",
-      prefix: <UserOutlined />,
+      prefix: <Person />,
     },
     {
       name: NAME_FORM_REGISTER.PHONE,
       typeInput: TYPE_INPUT.TEXT,
       placeholder: "Số điện thoại",
-      prefix: <PhoneOutlined />,
+      prefix: <Telephone />,
     },
     {
       name: NAME_FORM_REGISTER.PASSWORD,
       typeInput: TYPE_INPUT.PASSWORD,
       placeholder: "Mật khẩu",
-      prefix: <LockOutlined />,
+      prefix: <Lock />,
     },
   ];
 
@@ -130,7 +122,7 @@ const FormRegister: FC<FormRegisterProps> = ({ onSubmitForm, switchLogin }) => {
                       }, 10);
                     }}
                   >
-                    {seePassword ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+                    {seePassword ?  <Eye /> : <EyeSlash />}
                   </div>
                 }
                 type={seePassword ? "text" : "password"}

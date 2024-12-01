@@ -5,10 +5,11 @@ const prisma = new PrismaClient();
 
 interface CreateTaskType {
   adminId: number;
-  taskTitle: string;
+  title: string;
   status: string;
   approveMember: boolean;
   createdBy: string;
+  updatedBy: string;
 }
 
 const CreateTask = async (req: NextApiRequest, res: NextApiResponse) => {

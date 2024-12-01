@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,11 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
   id        Int      @id @default(autoincrement())
-  fristName String
-  lastName  String
+  fullName  String
   avatars   String?
   birthday  String?
   phone     String   @unique
@@ -30,13 +22,12 @@ model User {
 }
 
 model AccessToken {
-  id            Int       @id @default(autoincrement())
-  userId        Int 
-  username      String
-  token         String
-  deletedAt     DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String
+  expiredAt String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Task {
@@ -63,35 +54,35 @@ model Member {
 }
 
 model SubTask {
-  id            Int       @id @default(autoincrement())
-  taskId        Int
-  title         String
-  content       String
-  mentions      String
-  status        String
-  expiredAt     DateTime?
-  deletedAt     DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  createdBy     Int
-  updatedBy     Int
+  id        Int       @id @default(autoincrement())
+  taskId    Int
+  title     String
+  content   String
+  mentions  String
+  status    String
+  expiredAt DateTime?
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  createdBy Int
+  updatedBy Int
 }
 
 model Settings {
-  id        Int       @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   userId    Int
   theme     String
   fontText  String
   status    String
-  updatedAt DateTime  @updatedAt
+  updatedAt DateTime @updatedAt
 }
 
 model Notification {
-  id            Int         @id @default(autoincrement())
-  userId        Int
-  taskId        Int
-  subtaskId     Int
-  title         String
-  content       String
-  createdAt     DateTime    @default(now())
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  taskId    Int
+  subtaskId Int
+  title     String
+  content   String
+  createdAt DateTime @default(now())
 }

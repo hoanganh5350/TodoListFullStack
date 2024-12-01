@@ -1,7 +1,7 @@
 import React, { Key, useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
 import { CheckBoxGroup, Dropdown, ItemTask } from "@/components";
-import { Button, FloatButton, Input, Select, Space } from "antd";
+import { Button, FloatButton, Input, Select, Space } from "antd/lib";
 import { useRouter } from "next/router";
 import NoSRR from "@/components/NoSRR";
 import { Filter, PlusLg } from "react-bootstrap-icons";

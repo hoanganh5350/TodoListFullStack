@@ -4,8 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 interface CreateUserType {
-  fristName: string;
-  lastName: string;
+  fullName: string;
   avatars?: string;
   birthday?: string;
   phone: string;

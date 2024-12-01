@@ -1,8 +1,7 @@
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
-    "fristName" TEXT NOT NULL,
-    "lastName" TEXT NOT NULL,
+    "fullName" TEXT NOT NULL,
     "avatars" TEXT,
     "birthday" TEXT,
     "phone" TEXT NOT NULL,
@@ -20,9 +19,8 @@ CREATE TABLE "User" (
 CREATE TABLE "AccessToken" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER NOT NULL,
-    "username" TEXT NOT NULL,
     "token" TEXT NOT NULL,
-    "deletedAt" TIMESTAMP(3),
+    "expiredAt" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

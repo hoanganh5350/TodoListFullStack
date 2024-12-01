@@ -1,14 +1,9 @@
 import React, { FC, useRef, useState } from "react";
 import styles from "./Styles.module.scss";
-import {
-  UserOutlined,
-  LockOutlined,
-  EyeInvisibleOutlined,
-  EyeOutlined,
-} from "@ant-design/icons";
-import { Input, Button, InputRef } from "antd";
+import { Input, Button, InputRef } from "antd/lib";
 import { HeaderLogin } from "./HeaderLogin";
 import { MODE_LOGIN } from "../interface";
+import { Eye, EyeSlash, Lock, Person } from "react-bootstrap-icons";
 
 export enum NAME_FORM {
   EMAIL = "email",
@@ -51,7 +46,7 @@ const FormLogin: FC<FormLoginProps> = ({
           className={styles.inputLogin}
           size="large"
           placeholder="Email"
-          prefix={<UserOutlined />}
+          prefix={<Person />}
           onChange={onChange}
         />
 
@@ -61,7 +56,7 @@ const FormLogin: FC<FormLoginProps> = ({
           className={styles.inputLogin}
           size="large"
           placeholder="Mật khẩu"
-          prefix={<LockOutlined />}
+          prefix={<Lock />}
           suffix={
             <div
               className={styles.iconEye}
@@ -79,7 +74,7 @@ const FormLogin: FC<FormLoginProps> = ({
                 }, 10);
               }}
             >
-              {seePassword ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+              {seePassword ? <Eye /> : <EyeSlash />}
             </div>
           }
           type={seePassword ? "text" : "password"}

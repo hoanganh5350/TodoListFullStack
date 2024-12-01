@@ -1,7 +1,7 @@
 import React, { Key, useEffect, useState } from "react";
 import styles from "./Task.module.scss";
 import { CheckBoxGroup, Dropdown, ItemTask, NoteBox } from "@/components";
-import { Button, FloatButton, Input, Select, Space } from "antd";
+import { Button, FloatButton, Input, Select, Space } from "antd/lib";
 import { Filter, People, PlusLg, PlusSquare } from "react-bootstrap-icons";
 import { IUserDetails } from "@/components/NoteBox/NoteBox";
 

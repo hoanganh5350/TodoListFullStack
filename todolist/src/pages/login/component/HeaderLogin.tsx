@@ -1,7 +1,7 @@
 import React, { FC, Key, useEffect, useState } from "react";
 import styles from "./Styles.module.scss";
 import { MODE_LOGIN } from "../interface";
-import { LoginOutlined, UserAddOutlined } from "@ant-design/icons";
+import { BoxArrowInRight, PersonPlus } from "react-bootstrap-icons";
 
 type HeaderLoginProps = {
   mode: MODE_LOGIN;
@@ -14,7 +14,7 @@ const HeaderLogin: FC<HeaderLoginProps> = ({ mode }) => {
       {mode === MODE_LOGIN.LOGIN ? (
         <>
           <div className={styles.outIconLogin}>
-            <LoginOutlined className={styles.iconLogin} />
+            <BoxArrowInRight className={styles.iconLogin} />
           </div>
           <div className={styles.title}>Đăng nhập với Email</div>
           <div className={styles.sub}>
@@ -24,7 +24,7 @@ const HeaderLogin: FC<HeaderLoginProps> = ({ mode }) => {
       ) : (
         <>
           <div className={styles.outIconLogin}>
-            <UserAddOutlined className={styles.iconLogin} />
+            <PersonPlus className={styles.iconLogin} />
           </div>
           <div className={styles.title}>Đăng ký tài khoản</div>
           <div className={styles.sub}>
