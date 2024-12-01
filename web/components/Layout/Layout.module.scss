@@ -1,0 +1,81 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.Layout {
+  position: relative;
+}
+.Header {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: white;
+  height: 80px;
+  width: 100vw;
+  box-shadow: 0px 0px 10px $black;
+  align-items: center;
+  .rowLogo {
+    gap: 15px;
+    .outLogo {
+      width: 40px;
+      height: 40px;
+      .logo {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    .titleLogo {
+      font-size: 30px;
+      font-weight: 700;
+      color: $cyan;
+    }
+  }
+}
+
+.rowUtilsUser {
+  .UtilsUser {
+    cursor: pointer;
+    display: flex;
+    background-color: $white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px $black;
+    &:hover {
+      box-shadow: 0px 0px 8px $black;
+    }
+  }
+  .utilsUser {
+    padding-right: 30px;
+    display: flex;
+    width: max-content;
+    gap: 20px;
+  }
+}
+
+.dropSettingChildren {
+  margin-top: 5px;
+  width: 200px;
+  background-color: $white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px $black;
+}
+
+.SideDrawer {
+  z-index: 2;
+}
+
+.IconDraw {
+  cursor: pointer;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.Body {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  height: 100%;
+  width: 100%;
+  @include background("/BackgroundLogin.jpg", 100vw 100%);
+}

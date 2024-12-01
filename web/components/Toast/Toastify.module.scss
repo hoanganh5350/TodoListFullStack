@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.toastContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toastTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toastContent {
+  font-size: 13px;
+}

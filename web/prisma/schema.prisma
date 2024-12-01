@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  fullName  String
+  avatars   String?
+  birthday  String?
+  phone     String   @unique
+  email     String   @unique
+  address   String
+  userName  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AccessToken {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String
+  expiredAt String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Task {
+  id            Int       @id @default(autoincrement())
+  adminId       Int
+  title         String
+  status        String
+  approveMember Boolean   @default(false)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  createdBy     String
+  updatedBy     String
+}
+
+model Member {
+  id            Int       @id @default(autoincrement())
+  adminId       Int
+  taskId        Int
+  editingRights Boolean
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model SubTask {
+  id        Int       @id @default(autoincrement())
+  taskId    Int
+  title     String
+  content   String
+  mentions  String
+  status    String
+  expiredAt DateTime?
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  createdBy Int
+  updatedBy Int
+}
+
+model Settings {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  theme     String
+  fontText  String
+  status    String
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  taskId    Int
+  subtaskId Int
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+}

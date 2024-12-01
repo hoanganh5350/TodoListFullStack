@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.containerNoteBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 0px 6px $D30;
+}
+
+.containerTitleNote {
+  display: flex;
+  padding: 0px 12px;
+  height: 50px;
+  align-items: center;
+  background-color: #b6d5da;
+}
+
+.iconAndTitle {
+  flex: 19;
+  display: flex;
+  height: inherit;
+  align-items: center;
+  gap: 15px;
+}
+
+.iconSubTask {
+}
+
+.titleNote {
+  font-size: 22px;
+  font-weight: 600;
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.iconAction {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconOpen {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.iconUpdate {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.noteBoxCustom {
+  width: 100%;
+  height: calc(100% - 50px);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.noteBoxCustom > div:first-child {
+  min-height: 100%;
+  border-radius: 0px;
+}
+
+.displayNameMention {
+  width: 150px !important;
+}
+
+div:has(> div.displayNameMention) {
+  width: 200px !important;
+}

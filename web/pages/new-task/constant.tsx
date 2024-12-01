@@ -1,0 +1,51 @@
+export const formCreate = [
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+  {
+    label: "tên nhiệm vụ",
+    type: "",
+    col: 6,
+    name: "",
+    placeholder: "Tên người dùng",
+  },
+];

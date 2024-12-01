@@ -1,0 +1,138 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+@mixin hoverBubble() {
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin hiddenBubble() {
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.Dropdown {
+  position: relative;
+  .Title {
+    &_mid {
+      &:after {
+        content: "";
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        border-left: 100px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        top: 50%;
+        position: absolute;
+        right: -70%;
+        @include hiddenBubble();
+      }
+    }
+    &_start {
+      &:after {
+        content: "";
+        background-color: transparent;
+        height: 0;
+        width: 0;
+        border-bottom: 30px solid transparent;
+        border-right: 100px solid transparent;
+        top: 50%;
+        position: absolute;
+        left: -10%;
+        @include hiddenBubble();
+      }
+    }
+    &_end {
+      &:after {
+        content: "";
+        background-color: transparent;
+        height: 0;
+        width: 0;
+        border-bottom: 30px solid transparent;
+        border-left: 100px solid transparent;
+        top: 50%;
+        position: absolute;
+        right: 0;
+        @include hiddenBubble();
+      }
+    }
+
+    padding: 0;
+    &_bubble,
+    &_drop,
+    &_dropOff {
+      font-weight: 700;
+    }
+    &_bubble {
+      color: rgb(0, 0, 0);
+      &:hover {
+        + .Children_bubble {
+          @include hoverBubble();
+        }
+        &:after {
+          @include hoverBubble();
+        }
+      }
+    }
+    &_drop {
+      .Icon {
+        transition: 0.5s;
+      }
+      .Active {
+        transform: rotateZ(180deg);
+      }
+    }
+    &_dropOff {
+    }
+  }
+  .Children {
+    // &_bubble,
+    // &_drop,
+    // &_dropOff {
+    //   font-weight: 700;
+    //   padding: 10px 0;
+    //   color: $white;
+    // }
+    &_bubble {
+      min-width: 100px;
+      height: max-content;
+      max-height: 500px;
+      overflow-y: auto;
+      position: absolute;
+      padding: 10px;
+      @include hiddenBubble();
+      &:hover {
+        @include hoverBubble();
+      }
+    }
+    &_drop {
+      transition: 0.3s;
+      max-height: 0;
+      overflow: hidden;
+    }
+    &_dropOff {
+    }
+  }
+  .Bubble {
+    &_mid {
+      position: absolute;
+      right: -70%;
+    }
+    &_start {
+      position: absolute;
+      right: auto;
+      left: -10%;
+    }
+    &_end {
+      position: absolute;
+      right: 0;
+      left: auto;
+    }
+  }
+  .Open {
+    max-height: 500px;
+  }
+}
